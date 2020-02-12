@@ -1,6 +1,8 @@
 const net = require('net');
 const {IP, PORT} = require('./constants');
 
+const name = process.argv[2];
+
 const connect = () => {
   const conn = net.createConnection({
     host: IP,
@@ -9,7 +11,7 @@ const connect = () => {
   conn.setEncoding('utf8');
   conn.on('connect', () => {
     console.log('Successfully connected to server.');
-    conn.write('Name: BRK');
+    conn.write(`Name: ${name || 'AAA'}`);
     // setInterval(() => {
     //   conn.write('Move: left')
     // }, 50);
