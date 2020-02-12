@@ -1,3 +1,5 @@
+const KEYS = require('./constants').KEYS;
+
 let connection;
 
 const setupInput = (conn) => {
@@ -15,13 +17,13 @@ const setupInput = (conn) => {
 const handleUserInput = key => {
   if (key === '\u0003') { //CTRL C quits the game
     process.exit();
-  } else if (key === 'w') { //WASD for movement
+  } else if (key === KEYS.MOVE_UP_KEY) { //movement keys
     connection.write('Move: up');
-  } else if (key === 'a') {
+  } else if (key === KEYS.MOVE_LEFT_KEY) {
     connection.write('Move: left');
-  } else if (key === 's') {
+  } else if (key === KEYS.MOVE_DOWN_KEY) {
     connection.write('Move: down');
-  } else if (key === 'd') {
+  } else if (key === KEYS.MOVE_RIGHT_KEY) {
     connection.write('Move: right');
   } else if (key === 'j') { //special message sending
     connection.write('Say: HA HA');
