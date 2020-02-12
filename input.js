@@ -13,9 +13,9 @@ const setupInput = (conn) => {
 };
 
 const handleUserInput = key => {
-  if (key === '\u0003') {
+  if (key === '\u0003') { //CTRL C quits the game
     process.exit();
-  } else if (key === 'w') {
+  } else if (key === 'w') { //WASD for movement
     connection.write('Move: up');
   } else if (key === 'a') {
     connection.write('Move: left');
@@ -23,7 +23,13 @@ const handleUserInput = key => {
     connection.write('Move: down');
   } else if (key === 'd') {
     connection.write('Move: right');
-  }
+  } else if (key === 'j') { //special message sending
+    connection.write('Say: HA HA');
+  } else if (key === 'k') {
+    connection.write('Say: loser');
+  } else if (key === 'l') {
+    connection.write('Say: SNEK KING');
+  } 
 };
 
 module.exports = {setupInput};
