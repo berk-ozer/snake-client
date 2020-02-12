@@ -1,7 +1,7 @@
 const net = require('net');
 const {IP, PORT} = require('./constants');
 
-const name = process.argv[2];
+const name = process.argv[2]; //get user name from CLI
 
 const connect = () => {
   const conn = net.createConnection({
@@ -11,10 +11,7 @@ const connect = () => {
   conn.setEncoding('utf8');
   conn.on('connect', () => {
     console.log('Successfully connected to server.');
-    conn.write(`Name: ${name || 'AAA'}`);
-    // setInterval(() => {
-    //   conn.write('Move: left')
-    // }, 50);
+    conn.write(`Name: ${name || 'AAA'}`); //set user name
   })
   conn.on('data', data => {
     console.log(data);
